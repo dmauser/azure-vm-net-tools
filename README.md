@@ -1,4 +1,4 @@
-# Getting useful networking tools installed on Azure Linux or Windows VMs.
+# Installing networking tools on Azure VMs
 
 #### In this article
 
