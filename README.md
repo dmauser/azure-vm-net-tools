@@ -10,11 +10,11 @@
 
 ## Concepts
 
-This is a quick lab to show you how to deploy useful network utilities/tools on your Linux VM.
+On this post we will demonstrate how to deploy useful network utilities/tools on your Azure VMs (Linux and Windows).
 
 Please review the list of network tools installed inside the content of the [script](https://raw.githubusercontent.com/dmauser/az-vm-networking-tools/script/nettools.sh). You can also define your own startup script and replace the script URL on the variable **nettoolsuri** listed in the examples below.
 
-## Linux (Unbuntu)
+## Linux (Ubuntu)
 
 It is important to note all procedures below have been tested on Linux Ubuntu 18.04. You may need to make changes depending on your Linux distro.
 
