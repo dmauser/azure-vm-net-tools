@@ -1,33 +1,5 @@
-# Getting useful networking tools installed on Azure Linux or Windows VMs.
 
-#### In this article
-
-[Concepts](#Concepts)
-
-[Scenario 1: Deploy a new Azure Linux VM with Network Tools using CLI](#scenario-1-deploy-a-new-azure-linux-vm-with-network-tools-using-cli)
-
-[Scenario 2: Install network utilities on your existing Linux VMs](#scenario-2-install-network-utilities-on-your-existing-linux-vms)
-
-## Concepts
-
-This is a quick lab to show you how to deploy useful network utilities/tools on your Linux VM.
-
-Please review the list of network tools installed inside the content of the [script](https://raw.githubusercontent.com/dmauser/az-vm-networking-tools/script/nettools.sh). You can also define your own startup script and replace the script URL on the variable **nettoolsuri** listed in the examples below.
-
-## Linux (Unbuntu)
-
-It is important to note all procedures below have been tested on Linux Ubuntu 18.04. You may need to make changes depending on your Linux distro.
-
-### Requirements
-
-- [Azure Cloud Shell](https://shell.azure.com/)
-- Ubuntu Linux or WLS using Azure CLI (curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash). More info [Install the Azure CLI on Linux](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt).
-
-**Note:**: an Azure Shell script [lxvm-nettools.azcli](https://raw.githubusercontent.com/dmauser/az-vm-networking-tools/master/lxvm-nettools.azcli) with the scenarios below are also included in this repo.
-
-### Scenario 1: Deploy a new Azure Linux VM with Network Tools using CLI
-
-```Bash
+## Scenario 1 - Deploy a Azure Linux VM with Network Tools - CLI
 # Define variables
 rg=LAB-NetTools ## Define your resource group
 location=southcentralus # Define your location
@@ -69,13 +41,9 @@ pip=$(az network public-ip show --name $vmname-pip --resource-group $rg --query 
 ssh azureadmin@$pip
 # 1) Run traceroute
 # 2) Run curl localhost and you should see your VM name.
-```
 
-### Scenario 2: Install network utilities on your existing Linux VMs
 
-Install network utilities on all Linux VMs inside a resource group.
-
-```Bash
+## Scenario 2 - Install network utilities on your existing Linux VMs inside same resource group
 # Define variables
 rg=RSLAB-EUS2-AZFW ## Define your resource group
 nettoolsuri="https://raw.githubusercontent.com/dmauser/az-vm-networking-tools/master/script/nettools.sh"
@@ -91,4 +59,3 @@ do
  --protected-settings "{\"fileUris\": [\"$nettoolsuri\"],\"commandToExecute\": \"./nettools.sh\"}" \
  --no-wait
 done
-```
