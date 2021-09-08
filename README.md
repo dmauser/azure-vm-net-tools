@@ -93,3 +93,5 @@ do
  --no-wait
 done
 ```
+
+## Windows (coming soon)
