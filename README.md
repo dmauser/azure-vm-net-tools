@@ -16,7 +16,7 @@ On this post we will demonstrate how to deploy useful network utilities/tools on
 
 It is important to note all procedures below have been tested on Linux Ubuntu 18.04. You may need to make changes depending on your Linux distro.
 
-Please review the list of network tools installed inside the content of the [script](https://raw.githubusercontent.com/dmauser/az-vm-networking-tools/main/script/nettools.sh). You can also define your own startup script and replace the script URL on the variable **nettoolsuri** listed in the examples below.
+Please review the list of network tools installed inside the content of the [script](https://raw.githubusercontent.com/dmauser/azure-vm-net-tools/main/script/nettools.sh). You can also define your own startup script and replace the script URL on the variable **nettoolsuri** listed in the examples below.
 
 ### Requirements
 
@@ -24,7 +24,7 @@ Please review the list of network tools installed inside the content of the [scr
 - Ubuntu Linux or WLS using Azure CLI (curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash). More info [Install the Azure CLI on Linux](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt).
 - VMs require Internet access to be able to download the tools.
 
-**Note:**: an Azure Shell script [lxvm-nettools.azcli](https://raw.githubusercontent.com/dmauser/az-vm-networking-tools/main/lxvm-nettools.azcli) with the scenarios below are also included in this repo.
+**Note:**: an Azure Shell script [lxvm-nettools.azcli](https://raw.githubusercontent.com/dmauser/azure-vm-net-tools/main/lxvm-nettools.azcli) with the scenarios below are also included in this repo.
 
 ### Scenario 1: Deploy a new Azure Linux VM with Network Tools using CLI
 
@@ -35,7 +35,7 @@ location=southcentralus # Define your location
 vnetname=AzureVNET # Azure VNET name
 vmname=AzVM1 # Azure VM Name
 username=azureadmin
-nettoolsuri="https://raw.githubusercontent.com/dmauser/az-vm-networking-tools/main/script/nettools.sh"
+nettoolsuri="https://raw.githubusercontent.com/dmauser/azure-vm-net-tools/main/script/nettools.sh"
 
 # Create VNET/Subnet
 az group create --name $rg --location $location
@@ -79,7 +79,7 @@ Install network utilities on all Linux VMs inside a resource group.
 ```Bash
 # Define variables
 rg=RSLAB-EUS2-AZFW ## Define your resource group
-nettoolsuri="https://raw.githubusercontent.com/dmauser/az-vm-networking-tools/main/script/nettools.sh"
+nettoolsuri="https://raw.githubusercontent.com/dmauser/azure-vm-net-tools/main/script/nettools.sh"
 
 # Loop below will list all your Linux VMs and install the network utilities on them.
 for vm in `az vm list -g $rg --query "[?storageProfile.osDisk.osType=='Linux'].name" -o tsv`
