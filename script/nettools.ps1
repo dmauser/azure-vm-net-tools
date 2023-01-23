@@ -19,4 +19,11 @@ Write-host "Network Monitor 3.4 Installed "
 Start-BitsTransfer -source "https://github.com/microsoft/ntttcp/releases/download/v5.35/NTttcp.exe" -destination "$env:windir\system32\NTttcp.exe"
 Write-host "NTTTCP installed"
 
+# Wireshark silent install
+Start-BitsTransfer -source https://2.na.dl.wireshark.org/win64/Wireshark-win64-4.0.3.exe -destination "$env:windir\temp"
+cmd /c "$env:windir\temp\Wireshark-win64-4.0.3.exe /S /desktopicon=yes"
+Write-host "Wireshark Installed"
+
 Write-host "PS script has finished on VM $env:computername"
+
+
