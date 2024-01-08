@@ -1,6 +1,8 @@
 # This script has been tested on Ubuntu
 # Update repository
 apt update -y && sudo apt upgrade -y 
+# NetTools
+apt-get install net-tools -y
 #Traceroute
 apt-get install traceroute -y
 # TCP traceroute
