@@ -1,0 +1,27 @@
+# Parameters
+rg=lab2-svh-avs
+receivedvm=spoke1VM
+sendervm=spoke2VM
+
+
+# Install ntttcp-for-linux using az vm run-command using uri 
+#!/bin/bash
+
+# Parameters
+targetip="
+
+# Define the log file
+LOG_FILE="/path/to/your/logfile.log"
+
+# Function to run ntttcp and log the results
+run_ntttcp() {
+    echo "Running ntttcp at $(date)" >> $LOG_FILE
+    ntttcp -s -t 300 -m 1,$targetip >> $LOG_FILE 2>&1
+    echo "----------------------------------------" >> $LOG_FILE
+}
+
+# Infinite loop to run the function every hour
+while true; do
+    run_ntttcp
+    sleep 3600
+done
