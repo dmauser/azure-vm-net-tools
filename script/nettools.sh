@@ -17,3 +17,5 @@ apt-get install iperf3 -y
 apt-get install nginx -y && hostname > /var/www/html/index.html
 # Speedtest
 apt-get install speedtest-cli -y
+# Moreutils 
+apt-get install moreutils -y
